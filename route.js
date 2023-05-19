@@ -1,6 +1,6 @@
 const $ = document;
 config();
-const domin = 'http://127.0.0.1:5500/mm/SingleWebApp/';
+const domin = 'http://127.0.0.1:5500/mm/SingleWebApp/'; // یدونه ازش لایوسرور بگیرید و هر چیزی که توی ادرس نشون داد رو اینجا بزارید
 const info  = $.querySelector('.info');
 const title = $.querySelector('.title');
 const diti  = $.querySelector('.dit');
