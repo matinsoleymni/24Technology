@@ -1,0 +1,27 @@
+@font-face {
+    font-family: mikhak ;
+    src: url(../fonts/Mikhak-Black.ttf);
+}
+
+* {
+    font-family: mikhak;
+}
+
+.right p:hover {
+    color: rgb(247, 153, 167);
+}
+
+haeder {
+    margin-bottom: 150px;
+}
+
+a > button:hover {
+    background-color: blueviolet;
+    color: white;
+    border: none;
+}
+
+footer {
+    position: absolute;
+    bottom: 0px;
+}
