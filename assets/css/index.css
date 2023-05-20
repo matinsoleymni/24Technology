@@ -15,10 +15,15 @@ haeder {
     margin-bottom: 150px;
 }
 
+a > button {
+    border-radius: 15px;
+    border: none;
+    transition: all 500ms;
+}
 a > button:hover {
     background-color: blueviolet;
     color: white;
-    border: none;
+    transition: all 500ms;
 }
 
 footer {

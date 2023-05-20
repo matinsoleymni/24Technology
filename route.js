@@ -1,60 +1,64 @@
 const $ = document;
+const Url = new URL($.documentURI);
 let pushState = history.pushState;
 let replaceState = history.replaceState;
 
-history.pushState = function() {
+history.pushState = ()=> {
     pushState.apply(history, arguments);
     window.dispatchEvent(new Event('pushstate'));
     window.dispatchEvent(new Event('locationchange'));
 };
 
-history.replaceState = function() {
+history.replaceState = ()=> {
     replaceState.apply(history, arguments);
     window.dispatchEvent(new Event('replacestate'));
     window.dispatchEvent(new Event('locationchange'));
 };
 
-window.addEventListener('popstate', function() {
+window.addEventListener('popstate', ()=> {
     window.dispatchEvent(new Event('locationchange'))
 });
 
-const domin = 'http://127.0.0.1:5500/SingleWebApp/'; // یدونه ازش لایوسرور بگیرید و هر چیزی که توی ادرس نشون داد رو اینجا بزارید
+const domin = Url['origin']+Url['pathname'];
 const info  = $.querySelector('.info');
 const title = $.querySelector('.title');
 const diti  = $.querySelector('.dit');
 
 if($.URL == domin+'index.html' || $.URL == domin || $.URL == domin+'#'){
-    $.querySelector('.a').setAttribute('href' , '#admin')
-    $.querySelector('.a button').innerHTML = 'Admin';
-    title.innerHTML = 'Home Page'
-    diti.innerHTML  = 'This is Home Page :) matin is very love z:)  Zmat2411'; 
+    $.querySelector('.a').setAttribute('href' , HomePage['meta'][0])
+    $.querySelector('.a button').innerHTML = HomePage['meta'][1];
+    title.innerHTML = HomePage['title']
+    diti.innerHTML  = HomePage['dis']; 
 }else if($.URL == domin+'#admin' || $.URL == domin+'index.html#admin'){
-    $.querySelector('.a').setAttribute('href' , '#admin=users')
-    $.querySelector('.a button').innerHTML = 'User section';
-    title.innerHTML = 'Admin Panel'
-    diti.innerHTML  = 'Loremkjvbns kjdsbhfjkh skjh fjkiash akjsnb  ipsum dolor sit amet consectetur adipisicing elit. Numquam, vero!';
+    $.querySelector('.a').setAttribute('href' , Admin['meta'][0])
+    $.querySelector('.a button').innerHTML = Admin['meta'][1];
+    title.innerHTML = Admin['title']
+    diti.innerHTML  = Admin['dis']
 }else if($.URL == domin+'#admin=users' || $.URL == domin+'index.html#admin=users'){
-    $.querySelector('.a').setAttribute('href' , '#admin')
-    $.querySelector('.a button').innerHTML = 'Admin';
-    title.innerHTML = 'Admin Panel users Section'
-    diti.innerHTML  = 'Loremkjvbns kjdsbhfjkh skjh fjkiash akjsnb  ipsum dolor sit amet consectetur adipisicing elit. Numquam, vero!';
+    $.querySelector('.a').setAttribute('href' , AdminUser['meta'][0])
+    $.querySelector('.a button').innerHTML = AdminUser['meta'][1];
+    title.innerHTML = AdminUser['title']
+    diti.innerHTML  = AdminUser['dis']
 }
 
-window.addEventListener('locationchange', function(){
+
+window.addEventListener('locationchange', ()=>{
     if($.URL == domin+'index.html' || $.URL == domin || $.URL == domin+'#'){
-        $.querySelector('.a').setAttribute('href' , '#admin')
-        $.querySelector('.a button').innerHTML = 'Admin';
-        title.innerHTML = 'Home Page'
-        diti.innerHTML  = 'This is Home Page :) matin is very love z:)  Zmat2411'; 
+        $.querySelector('.a').setAttribute('href' , HomePage['meta'][0])
+        $.querySelector('.a button').innerHTML = HomePage['meta'][1];
+        title.innerHTML = HomePage['title']
+        diti.innerHTML  = HomePage['dis'];
     }else if($.URL == domin+'#admin' || $.URL == domin+'index.html#admin'){
-        $.querySelector('.a').setAttribute('href' , '#admin=users')
-        $.querySelector('.a button').innerHTML = 'User section';
-        title.innerHTML = 'Admin Panel'
-        diti.innerHTML  = 'Loremkjvbns kjdsbhfjkh skjh fjkiash akjsnb  ipsum dolor sit amet consectetur adipisicing elit. Numquam, vero!';
+        $.querySelector('.a').setAttribute('href' , Admin['meta'][0])
+        $.querySelector('.a button').innerHTML = Admin['meta'][1];
+        title.innerHTML = Admin['title']
+        diti.innerHTML  = Admin['dis']
     }else if($.URL == domin+'#admin=users' || $.URL == domin+'index.html#admin=users'){
-        $.querySelector('.a').setAttribute('href' , '#admin')
-        $.querySelector('.a button').innerHTML = 'Admin';
-        title.innerHTML = 'Admin Panel users Section'
-        diti.innerHTML  = 'Loremkjvbns kjdsbhfjkh skjh fjkiash akjsnb  ipsum dolor sit amet consectetur adipisicing elit. Numquam, vero!';
+        $.querySelector('.a').setAttribute('href' , AdminUser['meta'][0])
+        $.querySelector('.a button').innerHTML = AdminUser['meta'][1];
+        title.innerHTML = AdminUser['title']
+        diti.innerHTML  = AdminUser['dis']
     }
+    let url = new URL($.documentURI) ;
+    console.log(url);
 })
