@@ -1,3 +1,17 @@
+window.addEventListener("load", () => {
+    let res = "";
+    fetch("php/test.php", { method: "POST" })
+    .then(res => res.text())
+    .then(txt => res == txt);
+
+    if(res != true){
+        fetch("php/Select.php", { method: "POST" })
+        .then(res => res.text())
+        .then(txt => console.log(txt));
+    }
+
+})
+
 let HomePage = {
     'title' : 'Hello Welcome the Homepage',
     'dis'   : 'This is a home page of matin new Project :)) Z',
