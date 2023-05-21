@@ -1,23 +1,20 @@
-window.addEventListener("load", () => {
-    let res = "";
+let arr = [];
     fetch("php/test.php", { method: "POST" })
     .then(res => res.text())
-    .then(txt => res == txt);
+    .then(txt => console.log(txt))
+    
+    fetch("php/Table.php", { method: "POST" })
+    .then(res => res.text())
+    .then(txt => console.log(txt));
 
-    if(res != true){
-        fetch("php/Select.php", { method: "POST" })
-        .then(res => res.text())
-        .then(txt => console.log(txt));
-    }
-
-})
+    fetch("php/Select.php?id=1", { method: "POST" })
+    .then(res => res.text())
+    .then(txt => arr.push(txt));
+    console.log(arr);
 
 let HomePage = {
-    'title' : 'Hello Welcome the Homepage',
-    'dis'   : 'This is a home page of matin new Project :)) Z',
-    'meta'  : ['#admin' , 'Admin']
+    'meta'  : ['#admin' , 'admin']
 }
-
 
 
 let Admin = {

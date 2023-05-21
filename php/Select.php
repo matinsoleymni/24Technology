@@ -1,14 +1,16 @@
 <?php
 
-require_once('config.php');
 
+
+require_once('config.php');
+$id = $_REQUEST['id'];
 try {
-    
-    $stmt = $conn->query('SELECT * FROM data');
+    $stmt = $conn->query("SELECT * FROM data WHERE id=$id");
     while($rows = $stmt->fetch()){
-        echo "id: ".$rows['id']."/"."title: ".$rows['title']."/"."dis: ".$rows['dis']."/"."meta: ".$rows['meta'];
+        echo json_encode($rows);
     }
+
 }catch (PDOException $e){
-    echo "Error  ".$e->getMessage();
+    echo 'Select false';
 
 }

@@ -1,3 +1,5 @@
+setTimeout(()=> {
+let homepage = JSON.parse(arr[0]); 
 const $ = document;
 const Url = new URL($.documentURI);
 let pushState = history.pushState;
@@ -20,15 +22,14 @@ window.addEventListener('popstate', ()=> {
 });
 
 const domin = Url['origin']+Url['pathname'];
-const info  = $.querySelector('.info');
 const title = $.querySelector('.title');
 const diti  = $.querySelector('.dit');
 
-if($.URL == domin+'index.html' || $.URL == domin || $.URL == domin+'#'){
+if($.URL == domin+'index.html' || $.URL == domin || $.URL == domin+'#' || $.URL == domin+'index.html#'){
     $.querySelector('.a').setAttribute('href' , HomePage['meta'][0])
     $.querySelector('.a button').innerHTML = HomePage['meta'][1];
-    title.innerHTML = HomePage['title']
-    diti.innerHTML  = HomePage['dis']; 
+    title.innerHTML = homepage.title
+    diti.innerHTML  = homepage.dis
 }else if($.URL == domin+'#admin' || $.URL == domin+'index.html#admin'){
     $.querySelector('.a').setAttribute('href' , Admin['meta'][0])
     $.querySelector('.a button').innerHTML = Admin['meta'][1];
@@ -46,8 +47,8 @@ window.addEventListener('locationchange', ()=>{
     if($.URL == domin+'index.html' || $.URL == domin || $.URL == domin+'#'){
         $.querySelector('.a').setAttribute('href' , HomePage['meta'][0])
         $.querySelector('.a button').innerHTML = HomePage['meta'][1];
-        title.innerHTML = HomePage['title']
-        diti.innerHTML  = HomePage['dis'];
+        title.innerHTML = homepage.title
+        diti.innerHTML  = homepage.dis
     }else if($.URL == domin+'#admin' || $.URL == domin+'index.html#admin'){
         $.querySelector('.a').setAttribute('href' , Admin['meta'][0])
         $.querySelector('.a button').innerHTML = Admin['meta'][1];
@@ -62,3 +63,5 @@ window.addEventListener('locationchange', ()=>{
     let url = new URL($.documentURI) ;
     console.log(url);
 })
+
+} , 250)
