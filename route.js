@@ -1,67 +1,46 @@
 setTimeout(()=> {
-let homepage = JSON.parse(arr[0]); 
-const $ = document;
-const Url = new URL($.documentURI);
-let pushState = history.pushState;
-let replaceState = history.replaceState;
-
-history.pushState = ()=> {
-    pushState.apply(history, arguments);
-    window.dispatchEvent(new Event('pushstate'));
-    window.dispatchEvent(new Event('locationchange'));
-};
-
-history.replaceState = ()=> {
-    replaceState.apply(history, arguments);
-    window.dispatchEvent(new Event('replacestate'));
-    window.dispatchEvent(new Event('locationchange'));
-};
-
-window.addEventListener('popstate', ()=> {
-    window.dispatchEvent(new Event('locationchange'))
-});
-
-const domin = Url['origin']+Url['pathname'];
-const title = $.querySelector('.title');
-const diti  = $.querySelector('.dit');
+// datas = JSON.parse(arr[0]);
 
 if($.URL == domin+'index.html' || $.URL == domin || $.URL == domin+'#' || $.URL == domin+'index.html#'){
     $.querySelector('.a').setAttribute('href' , HomePage['meta'][0])
     $.querySelector('.a button').innerHTML = HomePage['meta'][1];
-    title.innerHTML = homepage.title
-    diti.innerHTML  = homepage.dis
+    title.innerHTML = datas.title
+    diti.innerHTML  = datas.dis
 }else if($.URL == domin+'#admin' || $.URL == domin+'index.html#admin'){
     $.querySelector('.a').setAttribute('href' , Admin['meta'][0])
     $.querySelector('.a button').innerHTML = Admin['meta'][1];
-    title.innerHTML = Admin['title']
-    diti.innerHTML  = Admin['dis']
+    title.innerHTML = datas.title
+    diti.innerHTML  = datas.dis
 }else if($.URL == domin+'#admin=users' || $.URL == domin+'index.html#admin=users'){
     $.querySelector('.a').setAttribute('href' , AdminUser['meta'][0])
     $.querySelector('.a button').innerHTML = AdminUser['meta'][1];
-    title.innerHTML = AdminUser['title']
-    diti.innerHTML  = AdminUser['dis']
+    title.innerHTML = datas.title
+    diti.innerHTML  = datas.dis
+}else if ($.URL == domin+'#login' || $.URL == domin+'index.html#login'){
+    APP.innerHTML = layouts[0];
 }
 
-
 window.addEventListener('locationchange', ()=>{
-    if($.URL == domin+'index.html' || $.URL == domin || $.URL == domin+'#'){
-        $.querySelector('.a').setAttribute('href' , HomePage['meta'][0])
-        $.querySelector('.a button').innerHTML = HomePage['meta'][1];
-        title.innerHTML = homepage.title
-        diti.innerHTML  = homepage.dis
-    }else if($.URL == domin+'#admin' || $.URL == domin+'index.html#admin'){
-        $.querySelector('.a').setAttribute('href' , Admin['meta'][0])
-        $.querySelector('.a button').innerHTML = Admin['meta'][1];
-        title.innerHTML = Admin['title']
-        diti.innerHTML  = Admin['dis']
-    }else if($.URL == domin+'#admin=users' || $.URL == domin+'index.html#admin=users'){
-        $.querySelector('.a').setAttribute('href' , AdminUser['meta'][0])
-        $.querySelector('.a button').innerHTML = AdminUser['meta'][1];
-        title.innerHTML = AdminUser['title']
-        diti.innerHTML  = AdminUser['dis']
-    }
-    let url = new URL($.documentURI) ;
-    console.log(url);
+    setTimeout(()=> {
+        datas = JSON.parse(arr[0]);
+        if($.URL == domin+'index.html' || $.URL == domin || $.URL == domin+'#' || $.URL == domin+'index.html#'){
+            $.querySelector('.a').setAttribute('href' , HomePage['meta'][0])
+            $.querySelector('.a button').innerHTML = HomePage['meta'][1];
+            title.innerHTML = datas.title
+            diti.innerHTML  = datas.dis
+        }else if($.URL == domin+'#admin' || $.URL == domin+'index.html#admin'){
+            $.querySelector('.a').setAttribute('href' , Admin['meta'][0])
+            $.querySelector('.a button').innerHTML = Admin['meta'][1];
+            title.innerHTML = datas.title
+            diti.innerHTML  = datas.dis
+        }else if($.URL == domin+'#admin=users' || $.URL == domin+'index.html#admin=users'){
+            $.querySelector('.a').setAttribute('href' , AdminUser['meta'][0])
+            $.querySelector('.a button').innerHTML = AdminUser['meta'][1];
+            title.innerHTML = datas.title
+            diti.innerHTML  = datas.dis
+        }
+    } , 100)
+ 
+    
 })
-
 } , 250)
