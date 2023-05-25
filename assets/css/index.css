@@ -1,13 +1,12 @@
-@font-face {
-    font-family: mikhak ;
-    src: url(../fonts/Mikhak-Black.ttf);
-}
+/* Main CSS file */
+
+@import url(./fonts.css);
 
 * {
     font-family: mikhak;
 }
 
-.right p:hover {
+.right a:hover {
     color: rgb(247, 153, 167);
 }
 

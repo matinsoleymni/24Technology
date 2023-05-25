@@ -1,9 +1,8 @@
 <?php
 
+/* This file NOT USE -> For the future */
 
-
-require_once('config.php');
-$id = $_REQUEST['id'];
+require_once('installation/config.php');
 try {
     $stmt = $conn->query("SELECT * FROM data WHERE id=$id");
     while($rows = $stmt->fetch()){

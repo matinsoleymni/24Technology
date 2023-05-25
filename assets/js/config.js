@@ -1,6 +1,11 @@
+/* 
+    * Config JS
+    * GLOBALS in this file
+*/
+
 const $ = document;
-let datas ;
 const APP = $.querySelector('.APP');
+const ROOT = $.querySelector('.ROOT');
 const title = $.querySelector('.title');
 const diti  = $.querySelector('.dit');
 let layouts = [];
