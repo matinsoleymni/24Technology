@@ -1,10 +1,8 @@
 <?php
 
-/* This file NOT USE -> For the future */
-
 require_once('../installation/config.php');
 try {
-    $stmt = $conn->query("SELECT * FROM data WHERE id=$id");
+    $stmt = $conn->query("SELECT * FROM users WHERE id=24");
     while($rows = $stmt->fetch()){
         echo json_encode($rows);
     }

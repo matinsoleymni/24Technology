@@ -1,11 +1,11 @@
 /* WEBSERVER  */
 if($.URL == domin|| $.URL == domin+'#' || $.URL == domin+'index.html'){
-    fetch("./assets/layouts/HomePage.html", { method: "POST" })
+    fetch("./assets/layouts/HomePage.html")
     .then(res => res.text())
     .then(txt => APP.innerHTML = txt);
 
 }else if ($.URL == domin+'#Blog' || $.URl == domin+'index.html#Blog'){
-    fetch("./assets/layouts/Blog.html", { method: "POST" })
+    fetch("./assets/layouts/Blog.html")
     .then(res => res.text())
     .then(txt => APP.innerHTML = txt);
 }else if($.URL == domin+'#login' || $.URL == domin+'index.html#login'){
@@ -18,12 +18,12 @@ if($.URL == domin|| $.URL == domin+'#' || $.URL == domin+'index.html'){
 
 window.addEventListener('locationchange' , ()=> {
     if($.URL == domin || $.URL == domin+'#' || $.URL == domin+'index.html'){
-        fetch("./assets/layouts/HomePage.html", { method: "POST" })
+        fetch("./assets/layouts/HomePage.html")
         .then(res => res.text())
         .then(txt => APP.innerHTML = txt);
     
     }else if ($.URL == domin+'#Blog' || $.URl == domin+'index.html#Blog'){
-        fetch("./assets/layouts/Blog.html", { method: "POST" })
+        fetch("./assets/layouts/Blog.html")
         .then(res => res.text())
         .then(txt => APP.innerHTML = txt);
     }else if($.URL == domin+'#login' || $.URL == domin+'index.html#login'){
