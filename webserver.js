@@ -21,7 +21,6 @@ window.addEventListener('locationchange' , ()=> {
         fetch("./assets/layouts/HomePage.html")
         .then(res => res.text())
         .then(txt => APP.innerHTML = txt);
-    
     }else if ($.URL == domin+'#Blog' || $.URl == domin+'index.html#Blog'){
         fetch("./assets/layouts/Blog.html")
         .then(res => res.text())
@@ -35,6 +34,6 @@ window.addEventListener('locationchange' , ()=> {
         .then(res => res.text())
         .then(txt => APP.innerHTML= txt)
     }else {
-        APP.innerHTML = '403'
+        APP.innerHTML = '404'
     }
 })
